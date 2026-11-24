@@ -1,0 +1,18 @@
+# 构建产物与发布包(可再生,不入库)
+/target/
+/dist/
+
+# 本地工具与代理派生文件
+/.zwork/
+/NVIDIA Corporation/
+
+# 备份 / 临时产物
+*.exe
+*.bak*
+*.pdb
+deploy-*.log
+batch_report.html
+ecc83-pp-erc.rpt
+
+# 厂商 SDK 头文件与 DLL 永不入库(厂商许可限制;代码运行时动态加载,用户自备驱动)
+/canlib/

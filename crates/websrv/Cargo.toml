@@ -1,0 +1,15 @@
+[package]
+name = "iotprobe-web"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "IoTProbe Web 实时台·可演示版本(ADR-0012):模拟源 + 契约 WS + 零构建前端"
+
+[[bin]]
+name = "iotprobe-web"
+path = "src/main.rs"
+
+[dependencies]
+iotprobe-core = { path = "../core" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

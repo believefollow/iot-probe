@@ -1,0 +1,8 @@
+pack: generic-heartbeat
+rules:
+  - id: BUS_SILENCE
+    level: warn
+    on: timeout
+    channel: "candump"
+    timeout: 80ms
+    message: "通道静默超 {timeout}(实测 {silence})"

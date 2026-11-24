@@ -1,0 +1,22 @@
+pack: generic-bms
+meta: { vendor: generic, model: bms, version: "1.0" }
+rules:
+  - id: TEMP_OVER_LIMIT
+    level: fault
+    on: signal
+    signal: TempSensor
+    when: "$ > 32.0"
+    message: "温度越限 {value} °C(阈值 32.0)"
+  - id: TEMP_HIGH
+    level: warn
+    on: signal
+    signal: TempSensor
+    when: "$ > 30.0 && $ <= 32.0"
+    message: "温度偏高 {value} °C"
+  - id: MOTOR_IDLE
+    level: info
+    on: signal
+    signal: RunState
+    when: "$ == 2"
+    once: true
+    message: "电机怠速(RunState=2)"

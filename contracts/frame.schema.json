@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bustool.local/schemas/frame.schema.json",
+  "title": "BusFrame",
+  "description": "统一报文抽象。所有接入层驱动必须把各自的数据结构映射成此结构，下游 codec/rules/store/egress 只认这一种。FROZEN: 变更需 ADR。",
+  "type": "object",
+  "required": ["ts_ns", "ts_src", "bus", "dir", "id", "id_type", "dlc", "data"],
+  "additionalProperties": false,
+  "properties": {
+    "ts_ns": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "单调纳秒时间戳。同一 session 内必须单调递增。来源等级由 ts_src 标注。"
+    },
+    "ts_src": {
+      "type": "string",
+      "enum": ["sw", "hw", "mcu", "wall"],
+      "description": "sw=OS收包时刻(L0) hw=适配器硬件时戳(L1) mcu=板载中断级(L2) wall=墙钟无精度保证"
+    },
+    "bus": {
+      "type": "object",
+      "required": ["type", "ch"],
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["can", "canfd", "uart", "ecat", "tcp"],
+          "description": "tcp=TCP 字节流(IEC 104 等;ADR-0017)"
+        },
+        "ch": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "同一 type 下的通道索引"
+        },
+        "alias": {
+          "type": "string",
+          "maxLength": 64,
+          "description": "用户可读别名，如 'BMS-CAN'、'电表-485'"
+        }
+      }
+    },
+    "dir": {
+      "type": "string",
+      "enum": ["rx", "tx"]
+    },
+    "id": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 536870911,
+      "description": "CAN: 11bit(0..2047) 或 29bit; UART/ECAT 填 0"
+    },
+    "id_type": {
+      "type": "string",
+      "enum": ["std", "ext", "none"]
+    },
+    "dlc": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 64,
+      "description": "data 数组实际长度"
+    },
+    "data": {
+      "type": "array",
+      "maxItems": 64,
+      "items": { "type": "integer", "minimum": 0, "maximum": 255 },
+      "description": "CAN 标准长度 8；CAN FD 0..64；UART 原始字节"
+    },
+    "meta": {
+      "type": "object",
+      "additionalProperties": true,
+      "description": "可选附加信息，不得承载业务语义",
+      "properties": {
+        "bitrate": { "type": "integer", "description": "bps" },
+        "data_bitrate": { "type": "integer", "description": "CAN FD 数据段 bps" },
+        "sample_point": { "type": "number", "minimum": 0, "maximum": 1 },
+        "err_flags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["stuff", "form", "crc", "ack", "bit", "overrun", "errframe"]
+          }
+        },
+        "seq": {
+          "type": "integer",
+          "description": "同通道内递增序号，用于丢帧检测"
+        },
+        "gap": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "距上一帧估计丢失的帧数（检测出丢帧时填）"
+        }
+      }
+    }
+  }
+}

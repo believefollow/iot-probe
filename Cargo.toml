@@ -1,0 +1,10 @@
+[workspace]
+resolver = "2"
+members = ["crates/core", "crates/app", "crates/aimcp", "crates/websrv", "crates/vcibridge"]
+
+[workspace.package]
+edition = "2021"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1

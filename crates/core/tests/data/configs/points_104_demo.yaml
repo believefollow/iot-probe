@@ -1,0 +1,16 @@
+# IEC 104 点表示例(演示变比/偏移/单位;基于 test-corpus 07-iec104 盘点表补全语义)
+# 加载:dbg_analyze iec104.pcap --map104 points_104_demo.yaml
+points:
+  # 短浮点遥测(M_ME_NC_1):factor=1 工程值即浮点,主要挂名字与单位
+  - {ioa: 256,  ty: 13, name: 有功功率P,  unit: kW}
+  - {ioa: 512,  ty: 13, name: 无功功率Q,  unit: kvar}
+  - {ioa: 768,  ty: 13, name: 功率因数,   unit: ""}
+  # 归一化遥测(M_ME_NA_1):raw/32768 归一化值 ×100 → %;offset 演示
+  - {ioa: 256,  ty: 9,  name: 电池SOC, factor: 100, unit: "%"}
+  # 标度化遥测(M_ME_NB_1):raw × 0.1
+  - {ioa: 512,  ty: 11, name: 直流电压, factor: 0.1, unit: V}
+  # 双点遥信(M_DP_TB_1)改名
+  - {ioa: 2816, ty: 31, name: 断路器1位置}
+  - {ioa: 3085, ty: 31, name: 隔离刀闸2}
+  # 带时标短浮点(M_ME_TF_1 序列)改一个
+  - {ioa: 4096, ty: 36, name: 电网频率, unit: Hz}

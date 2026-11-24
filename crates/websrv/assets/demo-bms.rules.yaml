@@ -1,0 +1,24 @@
+pack: demo-bms
+meta: { vendor: demo, model: motor-bms, version: "1.0" }
+rules:
+  - id: MOTOR_TEMP_WARN
+    level: warn
+    on: signal
+    signal: Temp
+    when: "$ > 50"
+    for: 1s
+    message: "电机温度偏高 {value} °C(持续 1s,阈值 50)"
+  - id: MOTOR_TEMP_FAULT
+    level: fault
+    on: signal
+    signal: Temp
+    when: "$ > 60"
+    for: 1s
+    message: "电机温度越限 {value} °C(持续 1s,阈值 60)"
+  - id: MOTOR_TEMP_DROP
+    level: warn
+    on: rate
+    signal: Temp
+    window: 2s
+    rate: "rate < -10"
+    message: "电机温度骤降 {delta} °C(rate={rate} °C/s,窗口 {window}s)"

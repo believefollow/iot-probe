@@ -1,0 +1,16 @@
+{
+  "name": "ACME-485",
+  "sync": "AA55",
+  "min_len": 11,
+  "length": {"at": 3, "size": 1, "bias": 7},
+  "checksum": {"algo": "crc16_modbus", "cover": [0, "end-2"]},
+  "fields": [
+    {"name": "cmd",  "at": 2, "ty": "u8"},
+    {"name": "temp", "at": 4, "ty": "i16", "scale": 0.1, "unit": "°C", "plot": true},
+    {"name": "rpm",  "at": 6, "ty": "u16", "endian": "big", "plot": true},
+    {"name": "flags","at": 8, "ty": "u8", "bits": [
+      {"name": "running", "bit": 0},
+      {"name": "fault",   "bit": 3}
+    ]}
+  ]
+}

@@ -1,0 +1,28 @@
+[package]
+name = "iotprobe"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "IoTProbe - IoT log dissection & timeline analysis desktop"
+
+[dependencies]
+iotprobe-core = { path = "../core" }
+serde_json = "1"
+serde = { version = "1", features = ["derive"] }
+egui = "0.32"
+libloading = "0.9.0"
+
+[dependencies.eframe]
+version = "0.32"
+default-features = true
+
+[dependencies.serde_yaml_ng]
+version = "0.10.0"
+
+[dependencies.rfd]
+version = "0.15"
+
+# FR-S1 实时接入:COM 串口源(core 保持 std-only,serialport 只允许在这里)
+[dependencies.serialport]
+version = "4"
+default-features = false

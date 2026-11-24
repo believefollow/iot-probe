@@ -1,0 +1,9 @@
+{"ts_ns":1767225600000000000,"ts_src":"mcu","bus":{"type":"uart","ch":0,"alias":"电表-485"},"dir":"tx","id":0,"id_type":"none","dlc":8,"data":[1,3,0,0,0,2,196,11],"meta":{"seq":0}}
+{"ts_ns":1767225600010000000,"ts_src":"mcu","bus":{"type":"uart","ch":0},"dir":"rx","id":0,"id_type":"none","dlc":9,"data":[1,3,4,65,32,0,0,239,197],"meta":{"seq":1}}
+{"ts_ns":1767225600020000000,"ts_src":"mcu","bus":{"type":"uart","ch":0},"dir":"tx","id":0,"id_type":"none","dlc":8,"data":[1,3,0,0,0,2,196,11],"meta":{"seq":2}}
+{"ts_ns":1767225600030000000,"ts_src":"mcu","bus":{"type":"can","ch":0,"alias":"BMS-CAN"},"dir":"rx","id":512,"id_type":"std","dlc":8,"data":[222,173,190,239,0,17,34,51],"meta":{"seq":0}}
+{"ts_ns":1767225600040000000,"ts_src":"mcu","bus":{"type":"can","ch":0},"dir":"tx","id":536870911,"id_type":"ext","dlc":3,"data":[1,2,3],"meta":{"seq":1}}
+{"ts_ns":1767225600050000000,"ts_src":"mcu","bus":{"type":"canfd","ch":0},"dir":"rx","id":3072,"id_type":"ext","dlc":12,"data":[0,1,2,3,4,5,6,7,8,9,10,11],"meta":{"seq":2}}
+这不是一行合法的 NDJSON
+{"ts_ns":1767225600070000000,"ts_src":"mcu","bus":{"type":"can","ch":0},"dir":"rx","id":512,"id_type":"std","dlc":8,"data":[5,5,5,5,5,5,5,5],"meta":{"seq":5}}
+{"ts_ns":1767225600080000000,"ts_src":"mcu","bus":{"type":"uart","ch":1},"dir":"rx","id":0,"id_type":"none","dlc":4,"data":[170,85,1,2],"meta":{"seq":0}}

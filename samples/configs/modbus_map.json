@@ -1,0 +1,8 @@
+{
+  "regs": [
+    {"addr": 0, "name": "TempSensor", "scale": 0.1, "unit": "°C"},
+    {"addr": 1, "name": "SetPoint",   "scale": 0.1, "unit": "°C"},
+    {"addr": 2, "name": "Energy", "width": 2, "byte_order": "CDAB", "scale": 0.01, "unit": "kWh"},
+    {"addr": 4, "name": "RunState", "enums": {"1": "Run", "2": "Idle", "3": "Fault"}}
+  ]
+}

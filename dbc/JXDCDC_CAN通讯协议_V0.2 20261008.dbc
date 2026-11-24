@@ -1,0 +1,409 @@
+VERSION ""
+
+
+NS_ :
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+
+BS_:
+
+BU_:  VCU DCDC DCAC PHES BMS RM PRF IBS Vector__XXX
+
+
+BO_ 2566860275 D2V_ST1: 8 DCDC
+ SG_ DCDC01_WorkingStatus : 0|3@1+ (1,0) [0|7] "" VCU
+ SG_ DCDC01_Reserved : 3|5@1+ (1,0) [0|31] "" VCU
+ SG_ DCDC01_OutCurrent : 8|16@1+ (0.1,0) [0|130] "A" VCU
+ SG_ DCDC01_OutVolt : 24|16@1+ (0.1,0) [0|33] "V" VCU
+ SG_ DCDC01_Temp : 40|8@1+ (1,-40) [-40|215] "℃" VCU
+ SG_ DCDC01_Counter : 48|8@1+ (1,0) [0|255] "" VCU
+ SG_ DCDC01_FaultCode : 56|6@1+ (1,0) [0|63] "" VCU
+ SG_ DCDC01_FaultLevel : 62|2@1+ (1,0) [0|3] "" VCU
+
+BO_ 2566860019 D2V_ST2: 8 DCDC
+ SG_ DCDC_KL30 : 0|16@1+ (0.1,0) [0|33] "V" VCU
+ SG_ DCDC_InputVolt : 16|16@1+ (1,0) [0|1000] "V" VCU
+ SG_ DCDC_InputCurrent : 32|8@1+ (0.1,0) [0|25] "A" VCU
+ SG_ DCDC_Reserved : 40|24@1+ (1,0) [0|1] "" VCU
+
+BO_ 2566860787 D2V_ST3: 8 DCDC
+ SG_ DCDC_HW_SubVersionLo : 0|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ DCDC_HW_SubVersionHi : 4|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ DCDC_HWMajorVersion : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ DCDC_SW_SubVersionLo : 16|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ DCDC_SW_SubVersionHi : 20|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ DCDC_SWMajorVersion : 24|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ DCDC_Vehicle_Information : 28|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ SW_Date_Y : 32|7@1+ (1,0) [0|127] "" Vector__XXX
+ SG_ SW_Date_D : 39|5@1+ (1,0) [0|31] "" Vector__XXX
+ SG_ SW_Date_M : 44|4@1+ (1,0) [0|15] "" Vector__XXX
+ SG_ DCDC_Source_Address : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ DCDC_Reserved : 56|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2566881923 V2D_CMD_01: 8 VCU
+ SG_ PLC01_DCDC_Reserved : 0|2@1+ (1,0) [0|3] "" DCDC
+ SG_ PLC01_DCDC_CANEnable : 2|2@1+ (1,0) [0|3] "" DCDC
+
+BO_ 2566861043 D2V_FLT1: 8 DCDC
+ SG_ bDCDCUnderInputVoltage : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bDCDCOverInputVoltage : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bDCDCOverInputCurrenttage : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bDCDCOverPriCurrentHw : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bDCDCOverOutputvoltage : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bDCDCUnderOutputVoltage : 5|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bDCDCOverOutputCurrent : 6|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bDCDCAux24VUnderVolttalg : 7|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bDCDCAux24VOverVolttalg : 8|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DCDC_FaultCode02_01 : 9|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bCommFaulttalg : 10|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bShortCircuitFaulttalg : 11|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bDCDCOverDCVolttHw : 12|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LvCANUnderAux5VFault : 13|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ LvCANOverAux5VFault : 14|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bDrv13V50verVoltFault : 15|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bDrv13V5UnderVoltFaulg : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bLv3v3Abnormtalg : 17|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bOverPriMosTemptalg : 18|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bTempOver : 19|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bOverSRMosTemptalg : 20|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bTempWarn : 21|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bTempSensortalg : 22|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bDCDCHwCircuitFault : 23|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bEEPROMFaulttalg : 24|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bSoftStartFaulttalg : 25|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bLyFANabnormtalg : 26|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bHWInputVoltOVP : 27|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bHwInputCurrOCP : 28|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bHWOutCurrOCP : 29|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ bDcdcBootFailure : 30|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 2566201583 D2I_CMD: 8 DCDC
+ SG_ CanWake : 16|2@1+ (1,0) [0|3] "" IBS
+
+BO_ 2566913143 I2D_ST1: 8 IBS
+ SG_ SOC : 0|16@1+ (0.1,0) [0|150] "%" VCU,DCDC
+ SG_ SOH : 16|8@1+ (0.5,0) [0|100] "%" VCU,DCDC
+ SG_ WakeUp1Status : 24|1@1+ (1,0) [0|1] "" VCU,DCDC
+ SG_ WakeUp2Status : 25|1@1+ (1,0) [0|1] "" VCU,DCDC
+ SG_ SensorStatus : 26|1@1+ (1,0) [0|1] "" VCU,DCDC
+ SG_ BatteryHealth : 27|1@1+ (1,0) [0|1] "" VCU,DCDC
+ SG_ DCDCFault : 28|1@1+ (1,0) [0|1] "" VCU,DCDC
+ SG_ DCDCCharge : 29|1@1+ (1,0) [0|1] "" VCU,DCDC
+
+BO_ 2566913399 I2D_ST2: 8 IBS
+ SG_ BatteryCurrent : 0|32@1+ (0.001,-1230) [-1230|1230] "A" VCU,DCDC
+ SG_ BatteryVoltage : 32|16@1+ (0.001,0) [0|32] "V" VCU,DCDC
+ SG_ Temperature : 48|8@1+ (1,-40) [-40|214] "℃" VCU,DCDC
+
+CM_ SG_ 2566860275 DCDC01_WorkingStatus "DCDC工作状态";
+CM_ SG_ 2566860275 DCDC01_Reserved "预留";
+CM_ SG_ 2566860275 DCDC01_OutCurrent "输出电流 ";
+CM_ SG_ 2566860275 DCDC01_OutVolt "输出电压";
+CM_ SG_ 2566860275 DCDC01_Temp "DCDC温度";
+CM_ SG_ 2566860275 DCDC01_Counter "报文发送次数统计";
+CM_ SG_ 2566860275 DCDC01_FaultCode "故障码";
+CM_ SG_ 2566860275 DCDC01_FaultLevel "故障报警级别";
+CM_ SG_ 2566860019 DCDC_KL30 "辅源电压";
+CM_ SG_ 2566860019 DCDC_InputVolt "输入电压";
+CM_ SG_ 2566860019 DCDC_InputCurrent "输入电流";
+CM_ SG_ 2566860019 DCDC_Reserved "预留";
+CM_ SG_ 2566860787 DCDC_HW_SubVersionLo "硬件次版本低位";
+CM_ SG_ 2566860787 DCDC_HW_SubVersionHi "硬件次版本高位";
+CM_ SG_ 2566860787 DCDC_HWMajorVersion "硬件主版本号";
+CM_ SG_ 2566860787 DCDC_SW_SubVersionLo "软件次版本低位";
+CM_ SG_ 2566860787 DCDC_SW_SubVersionHi "软件次版本高位";
+CM_ SG_ 2566860787 DCDC_SWMajorVersion "软件主版本号";
+CM_ SG_ 2566860787 DCDC_Vehicle_Information "车辆信息";
+CM_ SG_ 2566860787 SW_Date_Y "软件定型年份";
+CM_ SG_ 2566860787 SW_Date_D "软件定型日期";
+CM_ SG_ 2566860787 SW_Date_M "软件定型月份";
+CM_ SG_ 2566860787 DCDC_Source_Address "设备源地址";
+CM_ SG_ 2566860787 DCDC_Reserved "预留";
+CM_ SG_ 2566881923 PLC01_DCDC_Reserved "预留";
+CM_ SG_ 2566881923 PLC01_DCDC_CANEnable "CAN使能";
+CM_ SG_ 2566861043 bDCDCUnderInputVoltage "输入高压欠压";
+CM_ SG_ 2566861043 bDCDCOverInputVoltage "输入高压过压";
+CM_ SG_ 2566861043 bDCDCOverInputCurrenttage "输入过流";
+CM_ SG_ 2566861043 bDCDCOverPriCurrentHw "输入硬件过流";
+CM_ SG_ 2566861043 bDCDCOverOutputvoltage "输出过压";
+CM_ SG_ 2566861043 bDCDCUnderOutputVoltage "输出欠压";
+CM_ SG_ 2566861043 bDCDCOverOutputCurrent "输出过流";
+CM_ SG_ 2566861043 bDCDCAux24VUnderVolttalg "辅源欠压";
+CM_ SG_ 2566861043 bDCDCAux24VOverVolttalg "辅源过压";
+CM_ SG_ 2566861043 DCDC_FaultCode02_01 "硬件电路保护故障";
+CM_ SG_ 2566861043 bCommFaulttalg "通信故障";
+CM_ SG_ 2566861043 bShortCircuitFaulttalg "短路故障";
+CM_ SG_ 2566861043 bDCDCOverDCVolttHw "输出硬件过压";
+CM_ SG_ 2566861043 LvCANUnderAux5VFault "CAN5V欠压";
+CM_ SG_ 2566861043 LvCANOverAux5VFault "CAN5V过压";
+CM_ SG_ 2566861043 bDrv13V50verVoltFault "驱动13.5V过压";
+CM_ SG_ 2566861043 bDrv13V5UnderVoltFaulg "驱动13.5V欠压";
+CM_ SG_ 2566861043 bLv3v3Abnormtalg "3.3V异常";
+CM_ SG_ 2566861043 bOverPriMosTemptalg "原边moS过温";
+CM_ SG_ 2566861043 bTempOver "过温保护";
+CM_ SG_ 2566861043 bOverSRMosTemptalg "副边m0S过温";
+CM_ SG_ 2566861043 bTempWarn "过温警告";
+CM_ SG_ 2566861043 bTempSensortalg "温度传感器故障";
+CM_ SG_ 2566861043 bDCDCHwCircuitFault "硬件电路故障";
+CM_ SG_ 2566861043 bEEPROMFaulttalg "内存异常";
+CM_ SG_ 2566861043 bSoftStartFaulttalg "软启动异常";
+CM_ SG_ 2566861043 bLyFANabnormtalg "硬件电路引起的风扇异常";
+CM_ SG_ 2566861043 bHWInputVoltOVP "输入硬件过压";
+CM_ SG_ 2566861043 bHwInputCurrOCP "输入硬件过流";
+CM_ SG_ 2566861043 bHWOutCurrOCP "输出硬件过流";
+CM_ SG_ 2566861043 bDcdcBootFailure "DC启动失败";
+CM_ SG_ 2566201583 CanWake "CAN唤醒IBS";
+CM_ SG_ 2566913143 SOC "蓄电池SOC";
+CM_ SG_ 2566913143 SOH "蓄电池SOH";
+CM_ SG_ 2566913143 WakeUp1Status "唤醒状态1";
+CM_ SG_ 2566913143 WakeUp2Status "唤醒状态2";
+CM_ SG_ 2566913143 SensorStatus "传感器状态";
+CM_ SG_ 2566913143 BatteryHealth "蓄电池健康状态";
+CM_ SG_ 2566913143 DCDCFault "DCDC故障状态";
+CM_ SG_ 2566913143 DCDCCharge "DCDC充电";
+CM_ SG_ 2566913399 BatteryCurrent "蓄电池电流";
+CM_ SG_ 2566913399 BatteryVoltage "蓄电池电压";
+CM_ SG_ 2566913399 Temperature "蓄电池温度";
+
+
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 65535;
+BA_DEF_ BO_  "GenMsgILSupport" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 50000;
+BA_DEF_ BO_  "GenMsgNrOfRepetition" INT 0 999999;
+BA_DEF_  "NmBaseAddress" HEX 1024 1087;
+BA_DEF_  "BusType" STRING ;
+BA_DEF_ BU_  "NmStationAddress" HEX 0 0;
+BA_DEF_  "GenNWMApBusSleep" STRING ;
+BA_DEF_  "GenNWMApCanNormal" STRING ;
+BA_DEF_  "GenNWMApCanOff" STRING ;
+BA_DEF_  "GenNWMApCanOn" STRING ;
+BA_DEF_  "GenNWMApCanSleep" STRING ;
+BA_DEF_  "GenNWMApCanWakeUp" STRING ;
+BA_DEF_  "GenNWMGotoMode_Awake" STRING ;
+BA_DEF_  "GenNWMGotoMode_BusSleep" STRING ;
+BA_DEF_  "GenNWMSleepTime" INT 0 1000000;
+BA_DEF_  "GenNWMTalkNM" STRING ;
+BA_DEF_ BU_  "GenNodSleepTime" INT 0 1000000;
+BA_DEF_ BO_  "NmMessage" ENUM  "No","Yes";
+BA_DEF_ BU_  "NmNode" ENUM  "No","Yes";
+BA_DEF_ SG_  "NWM-WakeupAllowed" ENUM  "No","Yes";
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 2 50000;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 1 1000;
+BA_DEF_ BO_  "GenMsgNrOfRepetitions" INT 1 999999;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "cyclic","spontaneous","cyclicIfActive","spontaneousWithDelay","cyclicAndSpontaneous","cyclicAndSpontaneousWithDelay","spontaneousWithRepetition","cyclicIfActiveAndSpontaneousWD";
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 100000;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "spontaneous";
+BA_DEF_ SG_  "GenSigStartValue" FLOAT 0 1215752192;
+BA_DEF_ EV_  "GenEnvControlType" ENUM  "NoControl","SliderHoriz","SliderVert","PushButton","Edit","BitmapSwitch";
+BA_DEF_ EV_  "GenEnvMsgName" STRING ;
+BA_DEF_ EV_  "GenEnvMsgOffset" INT 0 999999999;
+BA_DEF_ EV_  "GenEnvAutoGenCtrl" ENUM  "No","Yes";
+BA_DEF_  "GenEnvVarEndingDsp" STRING ;
+BA_DEF_  "GenEnvVarEndingSnd" STRING ;
+BA_DEF_  "GenEnvVarPrefix" STRING ;
+BA_DEF_ BO_  "GenMsgAltSetting" STRING ;
+BA_DEF_ BO_  "GenMsgAutoGenDsp" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgAutoGenSnd" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgConditionalSend" STRING ;
+BA_DEF_ BO_  "GenMsgEVName" STRING ;
+BA_DEF_ BO_  "GenMsgPostIfSetting" STRING ;
+BA_DEF_ BO_  "GenMsgPostSetting" STRING ;
+BA_DEF_ BO_  "GenMsgPreIfSetting" STRING ;
+BA_DEF_ BO_  "GenMsgPreSetting" STRING ;
+BA_DEF_ BU_  "GenNodAutoGenSnd" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigAltSetting" STRING ;
+BA_DEF_ SG_  "GenSigAssignSetting" STRING ;
+BA_DEF_ SG_  "GenSigAutoGenDsp" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigAutoGenSnd" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigConditionalSend" STRING ;
+BA_DEF_ SG_  "GenSigEnvVarType" ENUM  "int","float","undef";
+BA_DEF_ SG_  "GenSigEVName" STRING ;
+BA_DEF_ SG_  "GenSigPostIfSetting" STRING ;
+BA_DEF_ SG_  "GenSigPostSetting" STRING ;
+BA_DEF_ SG_  "GenSigPreIfSetting" STRING ;
+BA_DEF_ SG_  "GenSigPreSetting" STRING ;
+BA_DEF_ SG_  "GenSigReceiveSetting" STRING ;
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "GenMsgILSupport" "Yes";
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgNrOfRepetition" 0;
+BA_DEF_DEF_  "NmBaseAddress" 1024;
+BA_DEF_DEF_  "BusType" "CAN";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "GenNWMApBusSleep" "apBusSleep()";
+BA_DEF_DEF_  "GenNWMApCanNormal" "apCanNormal()";
+BA_DEF_DEF_  "GenNWMApCanOff" "apCanOff()";
+BA_DEF_DEF_  "GenNWMApCanOn" "apCanOn()";
+BA_DEF_DEF_  "GenNWMApCanSleep" "apCanSleep()";
+BA_DEF_DEF_  "GenNWMApCanWakeUp" "apCanWakeUp()";
+BA_DEF_DEF_  "GenNWMGotoMode_Awake" "GotoMode_Awake()";
+BA_DEF_DEF_  "GenNWMGotoMode_BusSleep" "GotoMode_BusSleep()";
+BA_DEF_DEF_  "GenNWMSleepTime" 0;
+BA_DEF_DEF_  "GenNWMTalkNM" "TalkNM()";
+BA_DEF_DEF_  "GenNodSleepTime" 0;
+BA_DEF_DEF_  "NmMessage" "No";
+BA_DEF_DEF_  "NmNode" "No";
+BA_DEF_DEF_  "NWM-WakeupAllowed" "";
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 100;
+BA_DEF_DEF_  "GenMsgDelayTime" 1;
+BA_DEF_DEF_  "GenMsgNrOfRepetitions" 1;
+BA_DEF_DEF_  "GenMsgSendType" "";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "GenEnvControlType" "";
+BA_DEF_DEF_  "GenEnvMsgName" "";
+BA_DEF_DEF_  "GenEnvMsgOffset" 0;
+BA_DEF_DEF_  "GenEnvAutoGenCtrl" "No";
+BA_DEF_DEF_  "GenEnvVarEndingDsp" "Dsp_";
+BA_DEF_DEF_  "GenEnvVarEndingSnd" "_";
+BA_DEF_DEF_  "GenEnvVarPrefix" "Env";
+BA_DEF_DEF_  "GenMsgAltSetting" "";
+BA_DEF_DEF_  "GenMsgAutoGenDsp" "";
+BA_DEF_DEF_  "GenMsgAutoGenSnd" "";
+BA_DEF_DEF_  "GenMsgConditionalSend" "";
+BA_DEF_DEF_  "GenMsgEVName" "";
+BA_DEF_DEF_  "GenMsgPostIfSetting" "";
+BA_DEF_DEF_  "GenMsgPostSetting" "";
+BA_DEF_DEF_  "GenMsgPreIfSetting" "";
+BA_DEF_DEF_  "GenMsgPreSetting" "";
+BA_DEF_DEF_  "GenNodAutoGenSnd" "";
+BA_DEF_DEF_  "GenSigAltSetting" "";
+BA_DEF_DEF_  "GenSigAssignSetting" "";
+BA_DEF_DEF_  "GenSigAutoGenDsp" "";
+BA_DEF_DEF_  "GenSigAutoGenSnd" "";
+BA_DEF_DEF_  "GenSigConditionalSend" "";
+BA_DEF_DEF_  "GenSigEnvVarType" "undef";
+BA_DEF_DEF_  "GenSigEVName" "";
+BA_DEF_DEF_  "GenSigPostIfSetting" "";
+BA_DEF_DEF_  "GenSigPostSetting" "";
+BA_DEF_DEF_  "GenSigPreIfSetting" "";
+BA_DEF_DEF_  "GenSigPreSetting" "";
+BA_DEF_DEF_  "GenSigReceiveSetting" "";
+BA_ "GenMsgCycleTime" BO_ 2566860275 100;
+BA_ "GenMsgSendType" BO_ 2566860275 0;
+BA_ "GenSigStartValue" SG_ 2566860275 DCDC01_WorkingStatus 0;
+BA_ "GenSigStartValue" SG_ 2566860275 DCDC01_Reserved 0;
+BA_ "GenSigStartValue" SG_ 2566860275 DCDC01_OutCurrent 0;
+BA_ "GenSigStartValue" SG_ 2566860275 DCDC01_OutVolt 0;
+BA_ "GenSigStartValue" SG_ 2566860275 DCDC01_Temp 0;
+BA_ "GenSigStartValue" SG_ 2566860275 DCDC01_Counter 0;
+BA_ "GenSigStartValue" SG_ 2566860275 DCDC01_FaultCode 0;
+BA_ "GenSigStartValue" SG_ 2566860275 DCDC01_FaultLevel 0;
+BA_ "GenMsgCycleTime" BO_ 2566860019 100;
+BA_ "GenMsgSendType" BO_ 2566860019 0;
+BA_ "GenSigStartValue" SG_ 2566860019 DCDC_KL30 0;
+BA_ "GenSigStartValue" SG_ 2566860019 DCDC_InputVolt 0;
+BA_ "GenSigStartValue" SG_ 2566860019 DCDC_InputCurrent 0;
+BA_ "GenSigStartValue" SG_ 2566860019 DCDC_Reserved 0;
+BA_ "GenMsgCycleTime" BO_ 2566860787 100;
+BA_ "GenMsgSendType" BO_ 2566860787 0;
+BA_ "GenSigStartValue" SG_ 2566860787 DCDC_HW_SubVersionLo 0;
+BA_ "GenSigStartValue" SG_ 2566860787 DCDC_HW_SubVersionHi 0;
+BA_ "GenSigStartValue" SG_ 2566860787 DCDC_HWMajorVersion 0;
+BA_ "GenSigStartValue" SG_ 2566860787 DCDC_SW_SubVersionLo 0;
+BA_ "GenSigStartValue" SG_ 2566860787 DCDC_SW_SubVersionHi 0;
+BA_ "GenSigStartValue" SG_ 2566860787 DCDC_SWMajorVersion 0;
+BA_ "GenSigStartValue" SG_ 2566860787 DCDC_Vehicle_Information 0;
+BA_ "GenSigStartValue" SG_ 2566860787 SW_Date_Y 0;
+BA_ "GenSigStartValue" SG_ 2566860787 SW_Date_D 0;
+BA_ "GenSigStartValue" SG_ 2566860787 SW_Date_M 0;
+BA_ "GenSigStartValue" SG_ 2566860787 DCDC_Source_Address 0;
+BA_ "GenSigStartValue" SG_ 2566860787 DCDC_Reserved 0;
+BA_ "GenMsgCycleTime" BO_ 2566881923 100;
+BA_ "GenMsgSendType" BO_ 2566881923 0;
+BA_ "GenSigStartValue" SG_ 2566881923 PLC01_DCDC_Reserved 0;
+BA_ "GenSigStartValue" SG_ 2566881923 PLC01_DCDC_CANEnable 0;
+BA_ "GenMsgCycleTime" BO_ 2566861043 100;
+BA_ "GenMsgSendType" BO_ 2566861043 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bDCDCUnderInputVoltage 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bDCDCOverInputVoltage 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bDCDCOverInputCurrenttage 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bDCDCOverPriCurrentHw 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bDCDCOverOutputvoltage 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bDCDCUnderOutputVoltage 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bDCDCOverOutputCurrent 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bDCDCAux24VUnderVolttalg 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bDCDCAux24VOverVolttalg 0;
+BA_ "GenSigStartValue" SG_ 2566861043 DCDC_FaultCode02_01 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bCommFaulttalg 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bShortCircuitFaulttalg 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bDCDCOverDCVolttHw 0;
+BA_ "GenSigStartValue" SG_ 2566861043 LvCANUnderAux5VFault 0;
+BA_ "GenSigStartValue" SG_ 2566861043 LvCANOverAux5VFault 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bDrv13V50verVoltFault 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bDrv13V5UnderVoltFaulg 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bLv3v3Abnormtalg 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bOverPriMosTemptalg 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bTempOver 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bOverSRMosTemptalg 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bTempWarn 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bTempSensortalg 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bDCDCHwCircuitFault 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bEEPROMFaulttalg 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bSoftStartFaulttalg 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bLyFANabnormtalg 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bHWInputVoltOVP 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bHwInputCurrOCP 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bHWOutCurrOCP 0;
+BA_ "GenSigStartValue" SG_ 2566861043 bDcdcBootFailure 0;
+BA_ "GenMsgCycleTime" BO_ 2566201583 500;
+BA_ "GenMsgSendType" BO_ 2566201583 0;
+BA_ "GenSigStartValue" SG_ 2566201583 CanWake 0;
+BA_ "GenMsgCycleTime" BO_ 2566913143 500;
+BA_ "GenMsgSendType" BO_ 2566913143 0;
+BA_ "GenSigStartValue" SG_ 2566913143 SOC 0;
+BA_ "GenSigStartValue" SG_ 2566913143 SOH 0;
+BA_ "GenSigStartValue" SG_ 2566913143 WakeUp1Status 0;
+BA_ "GenSigStartValue" SG_ 2566913143 WakeUp2Status 0;
+BA_ "GenSigStartValue" SG_ 2566913143 SensorStatus 0;
+BA_ "GenSigStartValue" SG_ 2566913143 BatteryHealth 0;
+BA_ "GenSigStartValue" SG_ 2566913143 DCDCFault 0;
+BA_ "GenSigStartValue" SG_ 2566913143 DCDCCharge 0;
+BA_ "GenMsgCycleTime" BO_ 2566913399 500;
+BA_ "GenMsgSendType" BO_ 2566913399 0;
+BA_ "GenSigStartValue" SG_ 2566913399 BatteryCurrent 0;
+BA_ "GenSigStartValue" SG_ 2566913399 BatteryVoltage 0;
+BA_ "GenSigStartValue" SG_ 2566913399 Temperature 0;
+
+VAL_ 2566860275 DCDC01_WorkingStatus 1 "DCDC准备就绪" 2 "DCDC正在工作" 3 "DCDC停止工作" 4 "DCDC故障" 5 "预留" 6 "预留" 7 "预留" 0 "预留" ;
+VAL_ 2566860275 DCDC01_FaultCode 0 "无故障" 1 "输入过压" 2 "输入欠压" 4 "输出过压" 5 "输出欠压" 7 "硬件保护故障" 8 "KL30过压" 9 "KL30欠压" 10 "基板过温" 11 "MOS过温" 12 "硬件故障" 15 "驱动电压12V异常" 16 "MCU电压5V异常" 19 "硬件保护电路故障" 20 "温度传感器故障" 21 "低压保护自检故障" 22 "CAN通信故障" 23 "EEPROM操作失败" 24 "EEPROM故障" 27 "软启动失败" 28 "输出电流过流" 29 "输入过流" 30 "短路故障" 31 "风扇异常" ;
+VAL_ 2566860275 DCDC01_FaultLevel 0 "无故障" 1 "一级报警" 2 "二级报警" 3 "无效" ;
+VAL_ 2566860787 DCDC_Vehicle_Information 1 "纯电动" 2 "油电混合" 3 "气电混合" ;
+VAL_ 2566881923 PLC01_DCDC_CANEnable 0 "无效" 1 "使能无效" 2 "使能有效" 3 "无效" ;
+VAL_ 2566201583 CanWake 0 "KEY_OFF 钥匙关" 1 "KEY_ON 钥匙开" 2 "Error错误" 3 "Not Available 不可用" ;
+VAL_ 2566913143 WakeUp1Status 0 "Invalid" 1 "Valid" ;
+VAL_ 2566913143 WakeUp2Status 0 "Invalid" 1 "Valid" ;
+VAL_ 2566913143 SensorStatus 0 "Normal 蓄电池传感器正常" 1 "Error 蓄电池传感器故障" ;
+VAL_ 2566913143 BatteryHealth 0 "Health蓄电池健康状态" 1 "Unhealth 蓄电池不健康状态" ;
+VAL_ 2566913143 DCDCFault 0 "Normal 正常状态常" 1 "Error 故障状态" ;
+VAL_ 2566913143 DCDCCharge 0 "Normal 正常状态常" 1 "Error 故障状态" ;

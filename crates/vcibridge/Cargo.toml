@@ -1,0 +1,9 @@
+[package]
+name = "vci-bridge"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "32 位 VCI 桥接子进程:64 位主程序加载 32 位 ControlCAN.dll(老设备)时的兼容通道"
+
+# 有意保持零依赖(std-only):让 `cargo build --target i686-pc-windows-msvc`
+# 只需装 32 位 std,不牵连 GUI/串口等依赖树。

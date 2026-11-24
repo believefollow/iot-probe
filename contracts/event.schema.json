@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bustool.local/schemas/event.schema.json",
+  "title": "BusEvent",
+  "description": "由规则引擎产出的语义事件。核心约束：事件必须携带证据链（signals + frames_ref + rule_ref），否则不可输出。FROZEN: 变更需 ADR。",
+  "type": "object",
+  "required": ["id", "ts_ns", "level", "code", "source", "evidence"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "事件实例唯一 ID，格式 <session_id>:<seq>",
+      "maxLength": 128
+    },
+    "ts_ns": { "type": "integer", "minimum": 0 },
+    "level": {
+      "type": "string",
+      "enum": ["info", "warn", "fault"]
+    },
+    "code": {
+      "type": "string",
+      "maxLength": 64,
+      "description": "事件码，必须来自 rules-pack 定义，不允许代码硬编码，格式 VENDOR_MODEL_CATEGORY"
+    },
+    "source": {
+      "type": "object",
+      "required": ["bus_type", "ch"],
+      "additionalProperties": false,
+      "properties": {
+        "bus_type": { "type": "string", "enum": ["can", "canfd", "uart", "ecat", "system"] },
+        "ch": { "type": "integer" },
+        "alias": { "type": "string" }
+      }
+    },
+    "message": {
+      "type": "string",
+      "maxLength": 512,
+      "description": "人类可读描述，由规则模板生成，不含推断性结论"
+    },
+    "duration_ns": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "持续性事件（如超时、越限保持）的持续时长；瞬时事件省略"
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["signals", "rule_ref"],
+      "additionalProperties": false,
+      "properties": {
+        "signals": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "value"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string", "maxLength": 128 },
+              "value": true,
+              "unit": { "type": "string", "maxLength": 16 },
+              "quality": {
+                "type": "string",
+                "enum": ["good", "suspect", "stale", "invalid"]
+              }
+            }
+          }
+        },
+        "frames_ref": {
+          "type": "array",
+          "description": "可回溯到原始帧的引用（frame 唯一键），至少 1 条",
+          "minItems": 1,
+          "items": { "type": "string", "maxLength": 128 }
+        },
+        "rule_ref": {
+          "type": "object",
+          "required": ["pack", "file", "rule_id"],
+          "additionalProperties": false,
+          "properties": {
+            "pack": { "type": "string", "maxLength": 128 },
+            "file": { "type": "string", "maxLength": 256 },
+            "rule_id": { "type": "string", "maxLength": 64 },
+            "line": { "type": "integer", "minimum": 1 }
+          }
+        }
+      }
+    }
+  }
+}

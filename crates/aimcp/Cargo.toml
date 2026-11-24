@@ -1,0 +1,21 @@
+[package]
+name = "iotprobe-aimcp"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "ai-gate: 让 AI 客户端(ZCode/Trae/Cursor/Claude...)通过 MCP 标准协议接入 iot-probe 能力的统一代理层(第一版只读)"
+
+[[bin]]
+name = "iotprobe-mcp"
+path = "src/main.rs"
+
+[dependencies]
+iotprobe-core = { path = "../core" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# MCP 官方 Rust SDK:stdio server 需要 server(默认含)+ transport-io;macros 提供 #[tool]/#[tool_router]
+rmcp = { version = "3.9", features = ["server", "transport-io"] }
+# 参数 schema 生成(rmcp 的 schemars 1.x 同版),工具入参用 JsonSchema derive
+schemars = "1"
+# rmcp 运行在 tokio 之上;server 侧只需要 rt/macros/io-std/time
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "io-std", "time"] }

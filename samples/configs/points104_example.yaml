@@ -1,0 +1,2 @@
+points:
+  - {ty: 13, ioa: 256, name: 直流电压, factor: 0.1, unit: V, plot: true}

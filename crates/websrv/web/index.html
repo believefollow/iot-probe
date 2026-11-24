@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>IoTProbe Web 实时台 · 演示</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <div class="brand">IoTProbe <span class="sub">Web 实时台 · 可演示版本(ADR-0012)</span></div>
+  <div class="badges">
+    <span id="ws-state" class="badge off">连接中…</span>
+    <span class="badge" title="模拟源=收包时刻,ADR-5 分级承诺">时基 <b>sw / L0</b></span>
+    <span class="badge">帧 <b id="st-frames">0</b></span>
+    <span class="badge">信号点 <b id="st-sig">0</b></span>
+    <span class="badge">事件 <b id="st-ev">0</b></span>
+  </div>
+  <div class="actions">
+    <button id="btn-fault" class="btn warn">注入温度故障</button>
+    <button id="btn-stall" class="btn">心跳停发 3s</button>
+    <button id="btn-pause" class="btn">⏸ 暂停滚动</button>
+  </div>
+</header>
+
+<section class="filterbar">
+  <span class="fb-title">服务端过滤(T-1.11):</span>
+  <input id="f-ids" placeholder="ID 列表,如 0x1A0, 0x100" spellcheck="false">
+  <select id="f-dir">
+    <option value="">全部方向</option>
+    <option value="rx">RX</option>
+    <option value="tx">TX</option>
+  </select>
+  <button id="f-apply" class="btn small">应用</button>
+  <button id="f-clear" class="btn small">清除</button>
+  <span id="f-active" class="hint"></span>
+</section>
+
+<main>
+  <div class="panel left">
+    <div class="panel-title">报文流 <span class="hint" id="paused-hint"></span></div>
+    <div class="table-wrap">
+      <table id="frames">
+        <thead><tr><th>t(s)</th><th>方向</th><th>协议</th><th>ID</th><th>名称</th><th>DLC</th><th>数据(hex)</th></tr></thead>
+        <tbody id="fbody"></tbody>
+      </table>
+    </div>
+  </div>
+  <div class="right">
+    <div class="panel">
+      <div class="panel-title">信号曲线(60s 滚动,像素 min/max 抽稀)<span class="hint">点选曲线点跳帧</span></div>
+      <canvas id="chart"></canvas>
+      <div id="tooltip" class="tooltip" hidden></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">事件(规则 + 诊断,点选跳帧)</div>
+      <div id="events" class="evlist"></div>
+    </div>
+    <div class="panel">
+      <div class="panel-title">ID 聚合(近 30 个周期,抖动 &gt;25% 高亮)</div>
+      <div class="table-wrap short">
+        <table id="agg">
+          <thead><tr><th>ID</th><th>名称</th><th>帧数</th><th>均值周期</th><th>抖动σ%</th></tr></thead>
+          <tbody id="aggbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+<script src="/app.js"></script>
+</body>
+</html>

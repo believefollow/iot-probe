@@ -1,0 +1,19 @@
+[package]
+name = "iotprobe-core"
+version = "0.1.0"
+edition = "2021"
+license = "MIT OR Apache-2.0"
+description = "IoT log multi-protocol dissection core: ingest, dissect, timeline"
+
+[dependencies]
+encoding_rs = "0.8.44"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+serde_yaml_ng = "0.10.0"
+
+[[bin]]
+name = "gen_samples"
+path = "src/bin/gen_samples.rs"
+
+[dev-dependencies]
+jsonschema = "0.61.0"
